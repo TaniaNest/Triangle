@@ -12,7 +12,11 @@ import java.util.List;
 
 public class Controller {
 
-    private Instruction instruction;
+ Instruction instruction= new Instruction();
+ Input input= new Input();
+ Info info= new Info();
+ Validator validator= new Validator();
+
 
     List<Triangle> triangles = new ArrayList<Triangle>();
 
@@ -22,17 +26,17 @@ public class Controller {
         String name=null;
         float[] arr = new float[3];
         for (int i = 0; i < arr.length; i++) {
-            System.out.print(new Info().getInfo(i));
+            System.out.print(info.getInfo(i));
             while (arr[i] <= 0) {
-                arr[i] = new Input().getSide();
-                while (!new Validator().isPositiveNumber(arr[i])) {
+                arr[i] = input.getSide();
+                while (!validator.isPositiveNumber(arr[i])) {
                     instruction.getInstruction();
-                    arr[i] = new Input().getSide();
+                    arr[i] = input.getSide();
                 }
             }
         }
         System.out.print("Input name: ");
-        name=new Input().getName();
+        name=input.getName();
         addTriangle(new Triangle(arr[0],arr[1],arr[2],name));
         repeat();
     }
@@ -51,8 +55,8 @@ public class Controller {
 
     public void repeat(){
         String next;
-        System.out.print(new Info().getRequest());
-        next = new Input().getAnswer();
+        System.out.print(info.getRequest());
+        next = input.getAnswer();
         if (next.equals("y") || next.equals("yes")){
             runSide();
         }
