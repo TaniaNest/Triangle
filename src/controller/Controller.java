@@ -1,10 +1,12 @@
 package controller;
 
 import model.Triangle;
+import service.Action;
 import util.Info;
 import util.Input;
 import util.Instruction;
 import util.Validator;
+
 
 import java.util.ArrayList;
 import java.util.Collections;
@@ -16,6 +18,7 @@ public class Controller {
  Input input= new Input();
  Info info= new Info();
  Validator validator= new Validator();
+ Action action=new Action();
 
 
     List<Triangle> triangles = new ArrayList<Triangle>();
@@ -42,11 +45,17 @@ public class Controller {
     }
 
     public void addTriangle(Triangle triangle) {
+        action.getArea(triangle);
         triangles.add(triangle);
     }
 
+    public void sortTriangle(List<Triangle> triangles) {
+        Collections.sort(triangles, Collections.reverseOrder());
+        showList(triangles);
+    }
 
-    public void showList() {
+
+    public void showList(List<Triangle> triangles) {
         System.out.println("============= Triangles list: ===============");
         for (Triangle triangle : triangles) {
             System.out.println(triangle);
@@ -60,6 +69,6 @@ public class Controller {
         if (next.equals("y") || next.equals("yes")){
             runSide();
         }
-        else showList();
+        else sortTriangle(triangles);
     }
 }

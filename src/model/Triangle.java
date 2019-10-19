@@ -1,11 +1,12 @@
 package model;
 
-public class Triangle implements ITriangle, Comparable<Triangle>{
+public class Triangle implements  Comparable<Triangle>{
 
     private float a;
     private float b;
     private float c;
     private String name;
+    private double Area;
 
     public Triangle(float a, float b, float c, String name) {
         this.a = a;
@@ -50,16 +51,19 @@ public class Triangle implements ITriangle, Comparable<Triangle>{
         this.name = name;
     }
 
+    public double getArea() {
+        return Area;
+    }
+
+    public void setArea(double area) {
+        Area = area;
+    }
+
     @Override
     public String toString() {
         return "[Triangle " + this.name + "]: " + String.format("%.4g%n", this.getArea());
     }
 
-    @Override
-    public double getArea() {
-        double p = (a + b + c) / 2;
-        return Math.sqrt(p * (p - a) * (p - b) * (p - c));
-    }
 
 
     @Override
