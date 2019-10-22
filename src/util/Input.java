@@ -8,8 +8,8 @@ public class Input {
 
     public float getSide() {
         try {
-            return scanner.nextFloat();}
-        catch (InputMismatchException ex) {
+            return scanner.nextFloat();
+        } catch (InputMismatchException ex) {
             System.out.println(ex.getMessage());
         }
         return 0;

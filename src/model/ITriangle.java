@@ -1,6 +1,6 @@
 package model;
 
-public interface  ITriangle {
+public interface ITriangle {
 
     double getArea();
 

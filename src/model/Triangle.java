@@ -1,6 +1,6 @@
 package model;
 
-public class Triangle implements  Comparable<Triangle>{
+public class Triangle implements Comparable<Triangle> {
 
     private float a;
     private float b;
@@ -65,11 +65,10 @@ public class Triangle implements  Comparable<Triangle>{
     }
 
 
-
     @Override
     public int compareTo(Triangle o) {
 
-        int compareQuantity = (int)((Triangle) o).getArea();
-        return (int)(compareQuantity-this.getArea());
+        int compareQuantity = (int) ((Triangle) o).getArea();
+        return (int) (compareQuantity - this.getArea());
     }
 }

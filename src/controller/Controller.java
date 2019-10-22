@@ -15,10 +15,10 @@ import java.util.List;
 public class Controller {
 
     private Instruction instruction = new Instruction();
-    private Input       input = new Input();
-    private Info        info = new Info();
-    private Validator   validator = new Validator();
-    private Action      action = new Action();
+    private Input input = new Input();
+    private Info info = new Info();
+    private Validator validator = new Validator();
+    private Action action = new Action();
 
 
     List<Triangle> triangles = new ArrayList<Triangle>();
@@ -43,6 +43,7 @@ public class Controller {
         String name = input.getName();
         return name;
     }
+
     public void createTriangle() {
         addTriangle(new Triangle(createSide(), createSide(), createSide(), createName()));
     }
@@ -52,17 +53,9 @@ public class Controller {
         triangles.add(triangle);
     }
 
-    public void sortTriangle(List<Triangle> triangles) {
-        Collections.sort(triangles, Collections.reverseOrder());
-        showList(triangles);
-    }
-
 
     public void showList(List<Triangle> triangles) {
-        System.out.println("============= Triangles list: ===============");
-        for (Triangle triangle : triangles) {
-            System.out.println(triangle);
-        }
+        info.showList(action.sortTriangle(triangles));
     }
 
     public void repeat() {
@@ -71,6 +64,6 @@ public class Controller {
         next = input.getAnswer();
         if (next.equals("y") || next.equals("yes")) {
             run();
-        } else sortTriangle(triangles);
+        } else showList(triangles);
     }
 }
