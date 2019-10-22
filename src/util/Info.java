@@ -2,14 +2,14 @@ package util;
 
 public class Info {
 
-    public String getInfo(int param) {
+    public void getInfo() {
 
-       return "Input the side" + param+": ";
+        System.out.print( "Input the side: ");
     }
 
-    public String getRequest() {
+    public void getRequest() {
 
-        return "Do you want add new triangle: ";
+        System.out.print("Do you want add new triangle: ");
     }
 
 }

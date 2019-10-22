@@ -14,34 +14,37 @@ import java.util.List;
 
 public class Controller {
 
- Instruction instruction= new Instruction();
- Input input= new Input();
- Info info= new Info();
- Validator validator= new Validator();
- Action action=new Action();
+    private Instruction instruction = new Instruction();
+    private Input       input = new Input();
+    private Info        info = new Info();
+    private Validator   validator = new Validator();
+    private Action      action = new Action();
 
 
     List<Triangle> triangles = new ArrayList<Triangle>();
 
-    public void   runSide() {
-        boolean flag;
-        float side;
-        String name=null;
-        float[] arr = new float[3];
-        for (int i = 0; i < arr.length; i++) {
-            System.out.print(info.getInfo(i));
-            while (arr[i] <= 0) {
-                arr[i] = input.getSide();
-                while (!validator.isPositiveNumber(arr[i])) {
-                    instruction.getInstruction();
-                    arr[i] = input.getSide();
-                }
-            }
-        }
-        System.out.print("Input name: ");
-        name=input.getName();
-        addTriangle(new Triangle(arr[0],arr[1],arr[2],name));
+    public void run() {
+        createTriangle();
         repeat();
+    }
+
+    public float createSide() {
+        info.getInfo();
+        float side = input.getSide();
+        while (!validator.isPositiveNumber(side)) {
+            instruction.getInstruction();
+            side = new Input().getSide();
+        }
+        return side;
+    }
+
+    public String createName() {
+        System.out.print("Input name: ");
+        String name = input.getName();
+        return name;
+    }
+    public void createTriangle() {
+        addTriangle(new Triangle(createSide(), createSide(), createSide(), createName()));
     }
 
     public void addTriangle(Triangle triangle) {
@@ -62,13 +65,12 @@ public class Controller {
         }
     }
 
-    public void repeat(){
+    public void repeat() {
         String next;
-        System.out.print(info.getRequest());
+        info.getRequest();
         next = input.getAnswer();
-        if (next.equals("y") || next.equals("yes")){
-            runSide();
-        }
-        else sortTriangle(triangles);
+        if (next.equals("y") || next.equals("yes")) {
+            run();
+        } else sortTriangle(triangles);
     }
 }

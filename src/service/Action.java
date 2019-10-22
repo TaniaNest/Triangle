@@ -11,4 +11,5 @@ public class Action {
         double p = (a + b + c) / 2;
         triangle.setArea(Math.sqrt(p * (p - a) * (p - b) * (p - c)));
     }
+
 }
