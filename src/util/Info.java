@@ -1,14 +1,21 @@
 package util;
 
-import model.Triangle;
+import model.TriangleModel;
 
 import java.util.List;
 
 public class Info {
 
     public void getInfo() {
+        System.out.print("Input the sideOne, sideTwo, sideThree and name: ");
+    }
 
-        System.out.print("Input the side: ");
+    public void getParamTriangle() {
+        System.out.println("You didn't enter all parameters");
+    }
+
+    public void getTriangleExist() {
+        System.out.println("Triangle don't exist");
     }
 
     public void getRequest() {
@@ -16,9 +23,9 @@ public class Info {
         System.out.print("Do you want add new triangle: ");
     }
 
-    public void showList(List<Triangle> triangles) {
+    public void showList(List<TriangleModel> triangles) {
         System.out.println("============= Triangles list: ===============");
-        for (Triangle triangle : triangles) {
+        for (TriangleModel triangle : triangles) {
             System.out.println(triangle);
         }
     }

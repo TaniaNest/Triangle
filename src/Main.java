@@ -1,12 +1,9 @@
-import controller.Controller;
-import model.ITriangle;
-import model.Triangle;
-import util.Input;
+import controller.TriangleController;
 
 public class Main {
 
 
     public static void main(String[] args) {
-        new Controller().run();
+        new TriangleController().run();
     }
 }
