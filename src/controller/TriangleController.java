@@ -27,7 +27,7 @@ public class TriangleController {
 
     private String createString() {
         info.getInfo();
-        return new Input().getString();
+        return input.getString();
     }
 
     private String createSide(String side) {
@@ -58,7 +58,7 @@ public class TriangleController {
         } else {
             info.getTriangleExist();
             run();
-            return null;
+            return new TriangleModel();
         }
     }
 
